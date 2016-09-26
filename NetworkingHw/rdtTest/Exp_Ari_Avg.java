@@ -5,8 +5,7 @@ import java.io.PrintWriter;
 import java.io.FileNotFoundException;  
 import java.util.Scanner;  
 import java.util.regex.Matcher;  
-import java.util.regex.Pattern;  
-import java.util.ArrayList;  
+import java.util.regex.Pattern;    
 import java.io.IOException;  
 import java.util.Random;
 
@@ -19,10 +18,10 @@ public class Exp_Ari_Avg{
 	 	return preExpAvg;
 	 }
 	 
-	 public static double ariAvg(double preAriAvg, int newSample, int n, double alltheshit){
+	 public static double ariAvg(double preAriAvg, int newSample, int n, double all){
 		// To be completed...
 		 // (SampleRTT1 + SampleRTT2 +...+ SampleRTTn)/n
-		 preAriAvg =  alltheshit/n;
+		 preAriAvg =  all/n;
 	 	return preAriAvg;
 	 }
 	 
@@ -33,7 +32,7 @@ public class Exp_Ari_Avg{
 			double EstRTT1 = rn.nextInt(101);
 			double EstRTT2 = rn.nextInt(101);
 			int n = 1;
-			double alltheshit = 0.0;
+			double all = 0.0;
 	// get time from text file		
 			while(in.hasNextLine()){
 				String pattern = in.nextLine();
@@ -42,8 +41,8 @@ public class Exp_Ari_Avg{
 				while(m.find()){
 					int time = Integer.parseInt(m.group(1));
 					EstRTT1 = expAvg(EstRTT1, time);
-					alltheshit += time;
-					EstRTT2 = ariAvg(EstRTT2, time, n, alltheshit);
+					all += time;
+					EstRTT2 = ariAvg(EstRTT2, time, n, all);
 					n++;
 					System.out.printf(time +"\t"+ EstRTT1 + "\t" + EstRTT2 + "\n");
 					out.printf("%d \t\t %.3f \t %.3f", time,EstRTT1,EstRTT2);
