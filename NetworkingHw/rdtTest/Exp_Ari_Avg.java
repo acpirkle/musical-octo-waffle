@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import java.io.IOException;  
 import java.util.Random;
 
+// this program compares the estimated Round Trip Time of the two methods, exponential averaging, and arithmetic averaging
 public class Exp_Ari_Avg{ 
 	 public static double expAvg(double preExpAvg, int newSample){
 	 	// To be completed...
